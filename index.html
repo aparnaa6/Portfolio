@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="header">
+    <div  class="container">
+        <nav>
+            <img src="aparnalogo1.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header"> Home</a></li>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#skillss">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>  
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Hello, I am</p>
+            <h1>P APARNA</h1>
+            <h2>Data Analyst</h2>
+        </div>
+    </div>
+</div>
+<! ----------about---------->
+
+<div id="about">
+<div class="main">
+    <div class="infoContainer">
+        <div class="devInfo">
+            <h1 class="sub-title">About Me</h1>
+            <p class="newsub">I am P Aparna. I am currently pursuing my masters in computer science with data analytics. I am a skilled and detail-oriented Data Analytics student with a passion for translating data into meaningful insights. </p>
+            
+            
+        </div>
+        <div class="aparnaPic"><img src="aparna01.jpeg" alt="P Aparna"></div>
+    </div>
+   </div> 
+</div>
+   <! -----------skills----------->
+   <div id="skillss">
+    <div class="container">
+        <div class="row">
+            <div class="skillss-col-1">
+   <div class="skills">
+    <div class="skill">
+        <h1 class="skilname">Skills</h1>
+        <div class="skill-name">PYTHON</div>
+        <div class="skill-bar">
+            <div class="skill-per" per="60%" style="max-width:60%"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">SQL</div>
+        <div class="skill-bar">
+            <div class="skill-per" per="80%" style="max-width:80%"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">R</div>
+        <div class="skill-bar">
+            <div class="skill-per" per="65%" style="max-width:65%"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">JAVA</div>
+        <div class="skill-bar">
+            <div class="skill-per" per="50%" style="max-width:50%"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <div class="skill-name">TABLEAU</div>
+        <div class="skill-bar">
+            <div class="skill-per" per="55%" style="max-width:55%"></div>
+        </div>
+    </div>
+        
+
+</div>       
+</div>
+<div class="skillss-col-2">
+    <h1 class="sub-titl">Education</h1>
+    <div class="contents">
+        <div class="box">
+            <h4>Secondary Education</h4>
+            <p>Completed Class X from Bhavan's Vidya 
+                Mandir, Elamakkara with 91.2% </p>
+        </div>
+        <div class="box">
+            <h4>Senior Secondary Education</h4>
+            <p>Completed Class XI and XII from Bhavan's Vidya 
+                Mandir, Elamakkara with 80.4%
+            </p>
+        </div>
+        <div class="box">
+            <h4>Bachelor's Degree</h4>
+            <p>Graduated in Mathematics from St. Xavier's College
+                for Women, Aluva with ccpa 7.28
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<! -------------contact------------- -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            
+            <div class="contact-left">
+                <h1 class="sub-titlee">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i> aparnaa0506@gmail.com</p>
+                <p><i class="fa-solid fa-square-phone"></i> 9188586453</p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/__aparna_p"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/aparnaa6/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://twitter.com/aparnaa06"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://github.com/aparnaa6"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <br><br><br>
+
+        <p>Copyright © 2023 Aparna</p>
+    </div>
+</div>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxZ3OSTo14Y-Nc4Hwtg_f4j4awGCXIlethfKBZUc0yLL8s2io4XHavaXcE66i2K2PgC/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML="Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+  <script>
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+
+  </script>
+</body>
+</html>
